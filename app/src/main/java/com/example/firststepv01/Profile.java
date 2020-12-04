@@ -1,4 +1,4 @@
-package com.example.firststepv01.body;
+package com.example.firststepv01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,12 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-import com.example.firststepv01.R;
-
-public class profile extends AppCompatActivity {
+public class Profile extends AppCompatActivity {
 
     Button work, withdraw;
+    TextView username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,15 +20,22 @@ public class profile extends AppCompatActivity {
 
         work = findViewById(R.id.work_btn);
         withdraw = findViewById(R.id.withdraw_btn);
-
+        username = findViewById(R.id.username);
 
         work.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),index.class);
+                Intent intent = new Intent(getApplicationContext(), Index.class);
                 startActivity(intent);
             }
         });
 
+        username.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),EditProfile.class);
+                startActivity(intent);
+            }
+        });
     }
 }

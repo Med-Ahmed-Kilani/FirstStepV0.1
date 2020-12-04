@@ -1,16 +1,14 @@
-package com.example.firststepv01.body;
+package com.example.firststepv01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.firststepv01.R;
-
-public class index extends AppCompatActivity {
+public class EditProfile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_index);
+        setContentView(com.example.firststepv01.R.layout.activity_edit_profile);
     }
 }

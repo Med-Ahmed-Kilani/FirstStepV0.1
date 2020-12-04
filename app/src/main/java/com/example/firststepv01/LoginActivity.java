@@ -1,4 +1,4 @@
-package com.example.firststepv01.authentification;
+package com.example.firststepv01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,9 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.firststepv01.R;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -26,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),com.example.firststepv01.body.profile.class);
+                Intent intent = new Intent(getApplicationContext(), Profile.class);
                 startActivity(intent);
             }
         });

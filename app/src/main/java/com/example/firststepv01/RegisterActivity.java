@@ -1,4 +1,4 @@
-package com.example.firststepv01.authentification;
+package com.example.firststepv01;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.firststepv01.LoginActivity;
 import com.example.firststepv01.R;
 
 public class RegisterActivity extends Activity {
