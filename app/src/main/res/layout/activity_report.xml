@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Report"
+    android:padding="5dp"
+    android:background="@color/colorAccent">
+
+
+    <EditText
+        android:id="@+id/topic_report"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Topic"
+        android:paddingStart="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/border" />
+
+    <EditText
+        android:id="@+id/report_msg"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:background="@drawable/border"
+        android:layout_below="@+id/topic_report"
+        android:hint="@string/report_msg_hint"
+        />
+
+    <Button
+        android:id="@+id/report_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/report_button"
+        android:background="@drawable/report_btn"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/report_msg" />
+
+
+
+
+</RelativeLayout>

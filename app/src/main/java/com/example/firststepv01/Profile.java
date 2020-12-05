@@ -33,8 +33,16 @@ public class Profile extends AppCompatActivity {
         username.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),EditProfile.class);
+                Intent intent = new Intent(getApplicationContext(), EditProfile.class);
                 startActivity(intent);
+            }
+        });
+
+        withdraw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Withdraw.class);
+                startActivity(i);
             }
         });
     }

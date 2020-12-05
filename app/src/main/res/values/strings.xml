@@ -8,4 +8,28 @@
     <string name="login_mobile_number_hint">Mobile Number</string>
     <string name="login">Login</string>
     <string name="app_name">FirstStep</string>
+    <string name="report_button">Report !</string>
+    <string name="report_msg_hint">Report your issue here and we will check and answer asap :D !</string>
+    <string-array name="date">
+        <item>
+            Tunis
+        </item>
+        <item>
+            morocco
+        </item>
+        <item>
+            Algeria
+        </item>
+        <item>
+            Lybia
+        </item>
+        <item>
+            Syria
+        </item>
+    </string-array>
+    <string-array name="Withdraw_types">
+        <item>D17</item>
+        <item>Carte Bancaire</item>
+        <item>Carte E-Dinar</item>
+    </string-array>
 </resources>
