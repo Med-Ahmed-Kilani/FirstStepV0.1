@@ -10,6 +10,13 @@
     <string name="app_name">FirstStep</string>
     <string name="report_button">Report !</string>
     <string name="report_msg_hint">Report your issue here and we will check and answer asap :D !</string>
+    <string name="phone_number">Phone number</string>
+    <string name="exp_99999999">exp: 99999999</string>
+    <string name="submit">Submit</string>
+    <string name="amount_of_tnd">Amount of TND</string>
+    <string name="account_number">Account Number</string>
+    <string name="exp_123456789101112">exp: 123456789101112</string>
+    <string name="will_added_soon">Will added soon :)</string>
     <string-array name="date">
         <item>
             Tunis
@@ -29,7 +36,7 @@
     </string-array>
     <string-array name="Withdraw_types">
         <item>D17</item>
-        <item>Carte Bancaire</item>
         <item>Carte E-Dinar</item>
+        <item>Carte Bancaire</item>
     </string-array>
 </resources>

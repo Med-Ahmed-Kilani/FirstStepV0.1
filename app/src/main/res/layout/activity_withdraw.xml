@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Withdraw">
+    tools:context=".Withdraw"
+    android:layout_margin="10dp">
 
     <Spinner
         android:id="@+id/spinner"
@@ -14,5 +15,108 @@
         android:entries="@array/Withdraw_types"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="40dp" />
+
+    <EditText
+        android:id="@+id/amountToWithdraw"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/amount_of_tnd"
+        android:inputType="number"
+        android:autofillHints="" />
+
+    <LinearLayout
+        android:id="@+id/D17LayoutPayment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginVertical="10dp">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/phone_number"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/phoneNumberD17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/exp_99999999"
+            android:layout_marginHorizontal="20dp"
+            android:inputType="phone"
+            android:autofillHints="" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/cbLayoutPayment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/will_added_soon"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/carteEdinarLayoutPayment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginVertical="10dp">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/account_number"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/accountNumberCED"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/exp_123456789101112"
+            android:layout_marginHorizontal="20dp"
+            android:inputType="phone"
+            android:autofillHints="" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submitButtonWithdraw"
+        android:layout_width="100dp"
+        android:visibility="gone"
+        android:layout_height="40dp"
+        android:background="@drawable/login_button_bk"
+        android:text="@string/submit"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18sp" />
 
 </LinearLayout>

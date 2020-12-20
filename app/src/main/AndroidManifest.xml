@@ -9,22 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Withdraw"></activity>
-        <activity android:name=".Report" />
         <activity android:name=".AppFace">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".EditProfile" />
-        <activity android:name=".Index" />
-        <activity android:name=".Profile" />
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/AppTheme" />
-    </application>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".EditProfile" />
+        <activity android:name=".Report" />
+        <activity android:name=".Index" />
+        <activity android:name=".Profile" />
+        <activity android:name=".Withdraw"/>
+        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
 
+
+    </application>
 </manifest>
