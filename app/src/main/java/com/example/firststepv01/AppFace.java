@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.ads.MobileAds;
+
 public class AppFace extends AppCompatActivity {
 
     Button register,login;
@@ -16,24 +18,27 @@ public class AppFace extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_face);
 
-    register = findViewById(R.id.faceAppRegister);
-    login = findViewById(R.id.faceAppLogin);
+        MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
 
-    login.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-            startActivity(intent);
-        }
-    });
 
-    register.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
-            startActivity(intent);
-        }
-    });
+        register = findViewById(R.id.faceAppRegister);
+        login = findViewById(R.id.faceAppLogin);
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

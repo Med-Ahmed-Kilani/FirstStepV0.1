@@ -2,59 +2,35 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@drawable/border">
 
     <Button
         android:id="@+id/withdraw_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/colorPrimary"
         android:text="Withdrow"
-        android:textColor="@color/whiteTextColor" />
+        android:background="@drawable/report_btn"
+        />
 
-    <TextView
-        android:id="@+id/textView"
+    <Button
+        android:id="@+id/bonusReward"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:fontFamily="sans-serif-black"
-        android:text="TextView"
-        android:textSize="20sp"
-        android:textStyle="italic" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="sans-serif-black"
-        android:includeFontPadding="false"
-        android:text="TextView"
-        android:textSize="20sp"
-        android:textStyle="italic" />
+        android:layout_centerInParent="true"
+        android:text="Bonus Reward"
+        android:background="@drawable/report_btn"
+        />
 
     <Button
         android:id="@+id/work_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/colorPrimary"
         android:text="Work"
-        android:textColor="@color/whiteTextColor" />
+        android:background="@drawable/report_btn"
+        />
 
 
 </RelativeLayout>
