@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,18 +20,45 @@ import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdCallback;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 
+import java.util.ArrayList;
 
-public class Profile extends AppCompatActivity {
+
+public class LogsPage extends AppCompatActivity {
 
     private RewardedAd rewardedAd;
-
-    Button work, withdraw, bonusReward;
+    ListView lv;
+    Button work, withdraw, bonusReward, editBtn;
     TextView username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_logs);
+
+        bonusReward = findViewById(R.id.bonusReward);
+        work = findViewById(R.id.work_btn);
+        withdraw = findViewById(R.id.withdraw_btn);
+        username = findViewById(R.id.username);
+        editBtn = findViewById(R.id.edit_btn);
+        lv = findViewById(R.id.logsList);
+
+        ArrayList countries = new ArrayList();
+        countries.add("Tunisie");
+        countries.add("Lybia");
+        countries.add("Algerie");
+
+        final LogAdapter adapter = new LogAdapter(this, countries);
+
+        lv.setAdapter(adapter);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String log = adapter.data.get(position);
+                Toast.makeText(LogsPage.this, log ,Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         rewardedAd = new RewardedAd(this,
                 "ca-app-pub-3940256099942544/5224354917");
@@ -47,10 +76,6 @@ public class Profile extends AppCompatActivity {
         };
         rewardedAd.loadAd(new AdRequest.Builder().build(), adLoadCallback);
 
-        bonusReward = findViewById(R.id.bonusReward);
-        work = findViewById(R.id.work_btn);
-        withdraw = findViewById(R.id.withdraw_btn);
-        username = findViewById(R.id.username);
 
         work.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +85,7 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-        username.setOnClickListener(new View.OnClickListener() {
+        editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), EditProfile.class);
@@ -76,11 +101,11 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-        bonusReward.setOnClickListener(new View.OnClickListener() {
+         bonusReward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (rewardedAd.isLoaded()) {
-                    AppCompatActivity activityContext = Profile.this;
+                    AppCompatActivity activityContext = LogsPage.this;
                     RewardedAdCallback adCallback = new RewardedAdCallback() {
                         @Override
                         public void onRewardedAdOpened() {

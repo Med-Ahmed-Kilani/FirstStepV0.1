@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
 
+    EditText email,password;
     Button loginButton;
     TextView toRegister;
 
@@ -19,11 +21,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         loginButton = findViewById(R.id.cirLoginButton);
+        email = findViewById(R.id.editTextEmail);
+        password = findViewById(R.id.editTextPassword);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Profile.class);
+                Intent intent = new Intent(getApplicationContext(), LogsPage.class);
                 startActivity(intent);
             }
         });
@@ -37,5 +41,14 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void onLogin(View view){
+        String Email = email.getText().toString();
+        String Password = password.getText().toString();
+        String type = "login";
+
+        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+        backgroundWorker.execute(type, Email, Password);
     }
 }

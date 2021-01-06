@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/colorAccent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/dateOfLog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="03 sep 2020"
+        />
+
+    <TextView
+        android:id="@+id/theLog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="received 0.02 from your reff ahmed."
+        />
+
+</LinearLayout>

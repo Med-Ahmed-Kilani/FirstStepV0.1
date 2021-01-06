@@ -6,12 +6,6 @@
     android:layout_gravity="center"
     tools:context=".EditProfile">
 
-    <TextView
-        android:id="@+id/cin_edit-page"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CIN : 999999999"
-        android:textSize="20sp" />
 
     <include layout="@layout/layout_edit" />
 
@@ -24,6 +18,7 @@
         android:background="@drawable/report_btn"
         android:text="@string/report_button"
         android:layout_marginBottom="20dp"
+        android:textColor="#fff"
         />
 
 
