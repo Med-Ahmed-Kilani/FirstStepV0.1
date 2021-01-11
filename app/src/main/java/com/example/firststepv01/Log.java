@@ -1,43 +1,56 @@
 package com.example.firststepv01;
 
-import java.util.Date;
-
 public class Log {
+    int id;
+    String date;
+    Worker getter, giver;
+    Ad ad;
 
-    String fromLog = null, activityLog = null;
-    Date date;
-
-    public Log(Date date, String activityLog){
+    public Log(int id, String date, Worker getter, Worker giver, Ad ad) {
+        this.id = id;
         this.date = date;
-        this.activityLog = activityLog;
+        this.getter = getter;
+        this.giver = giver;
+        this.ad = ad;
     }
 
-    public Log(String fromLog, Date date){
-        this.fromLog = fromLog;
-        this.date = date;
+    public int getId() {
+        return id;
     }
 
-    public String getFromLog() {
-        return fromLog;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setFromLog(String fromLog) {
-        this.fromLog = fromLog;
-    }
-
-    public String getActivityLog() {
-        return activityLog;
-    }
-
-    public void setActivityLog(String activityLog) {
-        this.activityLog = activityLog;
-    }
-
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
+    }
+
+    public Worker getGetter() {
+        return getter;
+    }
+
+    public void setGetter(Worker getter) {
+        this.getter = getter;
+    }
+
+    public Worker getGiver() {
+        return giver;
+    }
+
+    public void setGiver(Worker giver) {
+        this.giver = giver;
+    }
+
+    public Ad getAd() {
+        return ad;
+    }
+
+    public void setAd(Ad ad) {
+        this.ad = ad;
     }
 }

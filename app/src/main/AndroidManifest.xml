@@ -16,9 +16,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".Register"
             android:theme="@style/AppTheme" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".Login" />
         <activity android:name=".EditProfile" />
         <activity android:name=".Report" />
         <activity android:name=".Index" />

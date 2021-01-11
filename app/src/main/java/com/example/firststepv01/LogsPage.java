@@ -47,17 +47,7 @@ public class LogsPage extends AppCompatActivity {
         countries.add("Lybia");
         countries.add("Algerie");
 
-        final LogAdapter adapter = new LogAdapter(this, countries);
 
-        lv.setAdapter(adapter);
-
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String log = adapter.data.get(position);
-                Toast.makeText(LogsPage.this, log ,Toast.LENGTH_SHORT).show();
-            }
-        });
 
 
         rewardedAd = new RewardedAd(this,
