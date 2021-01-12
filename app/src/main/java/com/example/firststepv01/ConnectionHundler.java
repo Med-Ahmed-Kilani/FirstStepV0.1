@@ -1,23 +1,47 @@
 package com.example.firststepv01;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.StrictMode;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class ConnectionHundler {
-    Connection con;
-    String uname, pass, ip, port, database;
+public class ConnectionHundler extends SQLiteOpenHelper {
+    private static final String uname = "worker";
+    private static final String pass = null;
+    private static final String ip = null;
+    private static String port = null;
+    private static final String database = "workerManager" ;
+    private static final int version = 1;
 
+
+
+    public ConnectionHundler (Context context, String nom, SQLiteDatabase.CursorFactory cursorFactory, int version){
+        super(context, nom, cursorFactory, version);
+    }
+
+    public ConnectionHundler (Context context){
+        super(context, database, null, version);
+
+    }
+
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
+
+    @SuppressLint("NewApi")
     public Connection connectionclass() {
-        uname="";
-        ip="";
-        pass="";
-        port="";
-        database="";
 
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
 
         Connection connection = null;
         String ConnectionURL = null;

@@ -9,4 +9,8 @@
     <dimen name="loginViewsMargin">20dp</dimen>
 
     <dimen name="signup_text_margin_top">10dp</dimen>
+
+    <dimen name="adTitleMaxWidth">100dp</dimen>
+    <dimen name="adPrice">70</dimen>
+    <dimen name="imageDimension">170dp</dimen>
 </resources>

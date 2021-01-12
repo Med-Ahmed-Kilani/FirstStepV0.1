@@ -1,10 +1,18 @@
 package com.example.firststepv01;
 
 public class Ad {
-    int id;
-    String title,url ;
+    int id, image;
+    String title, link, price ;
 
-    public Ad(int id, String title, String url) {
+    public Ad(int id, String title, String link, int image, String price) {
+        this.id = id;
+        this.price = price;
+        this.image = image;
+        this.title = title;
+        this.link = link;
+    }
+
+    public Ad(int id, String title) {
         this.id = id;
         this.title = title;
     }
@@ -25,11 +33,27 @@ public class Ad {
         this.title = title;
     }
 
-    public String getUrl() {
-        return url;
+    public int getImage() {
+        return image;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setImage(int image) {
+        this.image = image;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }

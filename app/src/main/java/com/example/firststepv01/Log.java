@@ -2,16 +2,12 @@ package com.example.firststepv01;
 
 public class Log {
     int id;
-    String date;
-    Worker getter, giver;
-    Ad ad;
+    String date, text;
 
-    public Log(int id, String date, Worker getter, Worker giver, Ad ad) {
+    public Log(int id, String date, String text) {
         this.id = id;
         this.date = date;
-        this.getter = getter;
-        this.giver = giver;
-        this.ad = ad;
+        this.text = text;
     }
 
     public int getId() {
@@ -30,27 +26,11 @@ public class Log {
         this.date = date;
     }
 
-    public Worker getGetter() {
-        return getter;
+    public String getText() {
+        return text;
     }
 
-    public void setGetter(Worker getter) {
-        this.getter = getter;
-    }
-
-    public Worker getGiver() {
-        return giver;
-    }
-
-    public void setGiver(Worker giver) {
-        this.giver = giver;
-    }
-
-    public Ad getAd() {
-        return ad;
-    }
-
-    public void setAd(Ad ad) {
-        this.ad = ad;
+    public void setText(String text) {
+        this.text = text;
     }
 }

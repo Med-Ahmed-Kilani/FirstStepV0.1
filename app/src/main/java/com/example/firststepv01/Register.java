@@ -10,19 +10,25 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 
 public class Register extends Activity {
 
     Button registerButton;
     TextView toLogin;
-    EditText name, phone, email, password;
+    EditText name, phone, email, password, reffSub;
+    Connection connect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        reffSub = findViewById(R.id.reffSub);
         name = findViewById(R.id.name);
         phone = findViewById(R.id.phone);
         email = findViewById(R.id.email);
@@ -32,18 +38,23 @@ public class Register extends Activity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
 
                 String inputEmail = email.getText().toString().trim();
                 String inputPassword = password.getText().toString().trim();
+                String inputReffsub = reffSub.getText().toString().trim();
 
-                if (TextUtils.isEmpty(inputEmail)) {
+
+                if (inputReffsub.equals("")){
+                    Toast.makeText(getApplicationContext(), "Enter your inviter code!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (inputEmail.equals("")) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if (TextUtils.isEmpty(inputPassword)) {
+                if (inputPassword.equals("")) {
                     Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -53,6 +64,22 @@ public class Register extends Activity {
                     return;
                 }
 
+
+               /* try {
+                    ConnectionHundler connectionHundler = new ConnectionHundler();
+                    connect = connectionHundler.connectionclass();
+                    if (connect!=null){
+                        String query= "INSERT INTO workers (inviter, name, phone, email, password)\n" +
+                                "VALUES ("+reffSub+", "+name+", "+phone+", "+email+", "+password+");";
+                        PreparedStatement preparedStatement =   connect.prepareStatement(query);
+                        preparedStatement.executeUpdate();
+                        Toast.makeText(getApplicationContext(),"passed",Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(getApplicationContext(),"check connection", Toast.LENGTH_SHORT ).show();
+                    }
+                }catch (Exception ex){
+                    Toast.makeText(getApplicationContext(), ex.toString(), Toast.LENGTH_SHORT).show();
+                }*/
             }
         });
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="180dp"
+    android:gravity="center"
+    android:padding="10dp"
+    android:background="@color/browser_actions_bg_grey"
+    android:layout_height="230dp">
+
+    <TextView
+        android:id="@+id/adTitle"
+        android:text="tedsjhdbcdbcbdskbvdn,bdskhvbksnc"
+        android:layout_width="wrap_content"
+        android:maxLines="1"
+        android:layout_height="wrap_content"
+        android:maxWidth="@dimen/adTitleMaxWidth" />
+    <TextView
+        android:id="@+id/adPrice"
+        android:layout_alignParentEnd="true"
+        android:text="0.001"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <ImageView
+        android:id="@+id/adImage"
+        android:src="@drawable/noimage"
+        android:layout_below="@+id/adPrice"
+        android:layout_width="@dimen/imageDimension"
+        android:maxWidth="@dimen/imageDimension"
+        android:maxHeight="@dimen/imageDimension"
+        android:layout_height="@dimen/imageDimension"/>
+
+    <TextView
+        android:id="@+id/adLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/adImage"
+        android:maxLines="1"
+        android:text="this is the link" />
+
+</RelativeLayout>

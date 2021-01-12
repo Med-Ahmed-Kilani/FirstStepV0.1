@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -42,12 +41,12 @@ public class LogsPage extends AppCompatActivity {
         editBtn = findViewById(R.id.edit_btn);
         lv = findViewById(R.id.logsList);
 
-        ArrayList countries = new ArrayList();
-        countries.add("Tunisie");
-        countries.add("Lybia");
-        countries.add("Algerie");
+        ArrayList<Log> logs = new ArrayList<>();
+        logs.add(new Log(1, "test", "test"));
+        logs.add(new Log(2, "test1", "test1"));
+        logs.add(new Log(3, "test2", "test2"));
 
-
+        lv.setAdapter(new LogAdapter(getApplicationContext(), R.layout.log_model, logs));
 
 
         rewardedAd = new RewardedAd(this,
@@ -70,7 +69,7 @@ public class LogsPage extends AppCompatActivity {
         work.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Index.class);
+                Intent intent = new Intent(getApplicationContext(), WorkPage.class);
                 startActivity(intent);
             }
         });
