@@ -39,7 +39,7 @@ public class AdAdapter extends RecyclerView.Adapter<AdAdapter.ViewHolder>  {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Ad ad = ads.get(position);
         holder.adTitle.setText(ad.title);
-    //    holder.adImage.setImageResource(ad.image);
+        holder.adImage.setImageResource(ad.image);
         holder.adPrice.setText(ad.price);
         holder.adLink.setText(ad.link);
 

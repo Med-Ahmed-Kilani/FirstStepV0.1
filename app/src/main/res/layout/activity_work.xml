@@ -8,10 +8,7 @@
 
         <include layout="@layout/layout_info" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/adsList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <include layout="@layout/layout_ads" />
 
 
 </LinearLayout>

@@ -2,6 +2,7 @@ package com.example.firststepv01;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -48,15 +49,25 @@ public class WorkPage extends AppCompatActivity {
         withdraw = findViewById(R.id.withdraw_btn);
         editBtn = findViewById(R.id.edit_btn);
         adsListView = findViewById(R.id.adsList);
-        adsListView.setLayoutManager(new LinearLayoutManager(this));
+        adsListView.setLayoutManager(new GridLayoutManager(this, 2));
         adsListView.setHasFixedSize(true);
 
         List<Ad> ads = new ArrayList<>();
-        Ad newAd = new Ad(5,"test", "goof", R.drawable.noimage, "0.01");
-        Ad newAd2 = new Ad(5,"test", "goof", R.drawable.noimage, "0.01");
+        Ad newAd1 = new Ad(5,"test0", "goof", R.drawable.noimage, "0.01");
+        Ad newAd2 = new Ad(5,"test1", "goof", R.drawable.noimage, "0.01");
+        Ad newAd3 = new Ad(5,"test2", "goof", R.drawable.noimage, "0.01");
+        Ad newAd4 = new Ad(5,"test3", "goof", R.drawable.noimage, "0.01");
+        Ad newAd5 = new Ad(5,"test4", "goof", R.drawable.noimage, "0.01");
+        Ad newAd6 = new Ad(5,"test5", "goof", R.drawable.noimage, "0.01");
 
-        ads.add(newAd);
+        ads.add(newAd1);
         ads.add(newAd2);
+        ads.add(newAd3);
+        ads.add(newAd4);
+        ads.add(newAd5);
+        ads.add(newAd6);
+
+
         AdAdapter adapter = new AdAdapter(ads, getApplicationContext());
 
         adsListView.setAdapter(adapter);
