@@ -65,8 +65,8 @@ public class Register extends Activity {
                 }
 
 
-               /* try {
-                    ConnectionHundler connectionHundler = new ConnectionHundler();
+               /*try {
+                    /*ConnectionHundler connectionHundler = new ConnectionHundler();
                     connect = connectionHundler.connectionclass();
                     if (connect!=null){
                         String query= "INSERT INTO workers (inviter, name, phone, email, password)\n" +
@@ -79,10 +79,9 @@ public class Register extends Activity {
                     }
                 }catch (Exception ex){
                     Toast.makeText(getApplicationContext(), ex.toString(), Toast.LENGTH_SHORT).show();
-                }*/
+                };*/
             }
         });
-
 
         toLogin = findViewById(R.id.toLogin);
 
@@ -93,6 +92,5 @@ public class Register extends Activity {
                 startActivity(intent);
             }
         });
-
     }
 }

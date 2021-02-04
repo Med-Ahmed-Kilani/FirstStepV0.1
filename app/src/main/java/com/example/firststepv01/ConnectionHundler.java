@@ -18,7 +18,6 @@ public class ConnectionHundler extends SQLiteOpenHelper {
     private static final int version = 1;
 
 
-
     public ConnectionHundler (Context context, String nom, SQLiteDatabase.CursorFactory cursorFactory, int version){
         super(context, nom, cursorFactory, version);
     }

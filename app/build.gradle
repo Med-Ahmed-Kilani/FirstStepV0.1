@@ -35,7 +35,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:19.6.0'
     implementation 'com.android.support:multidex:2.1.0'
 
-    implementation files('C:\\Users\\Ahmed Kilani\\AndroidStudioProjects\\FirstStepV0.1\\app\\libs\\jtds-1.3.1.jar')
+  //  implementation files('C:\\Users\\Ahmed Kilani\\AndroidStudioProjects\\FirstStepV0.1\\app\\libs\\jtds-1.3.1.jar')
 
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

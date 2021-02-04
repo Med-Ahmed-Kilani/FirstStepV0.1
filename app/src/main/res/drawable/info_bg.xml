@@ -4,6 +4,7 @@
         android:centerX="90%"
         android:startColor="#fff"
         android:endColor="#ADE8F4"
+        android:centerColor="#ADE8F4"
         android:type="linear"
         />
 </shape>
