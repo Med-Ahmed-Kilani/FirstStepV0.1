@@ -32,6 +32,7 @@ public class Login extends AppCompatActivity {
         loginButton = findViewById(R.id.cirLoginButton);
         email = findViewById(R.id.editTextEmail);
         password = findViewById(R.id.editTextPassword);
+        toRegister = findViewById(R.id.toRegister);
 
         final String inputEmail = email.getText().toString().trim();
         final String inputPass = password.getText().toString().trim();
@@ -39,34 +40,11 @@ public class Login extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-               /* try {
-                    ConnectionHundler connectionHundler = new ConnectionHundler();
-                    connect = connectionHundler.connectionclass();
-                    if (connect!=null){
-                        String query= "select  email, password from workers where (email='"+inputEmail+"'&password='"+inputPass+"');";
-                        PreparedStatement st = connect.prepareStatement(query);
-                        ResultSet rs = st.executeQuery(query);
-
-
-                        if (rs.equals(null)){
-                            Toast.makeText(getApplicationContext(),"Login or password are false",Toast.LENGTH_SHORT).show();
-                        }else {
-                            Toast.makeText(getApplicationContext(),"passed",Toast.LENGTH_SHORT).show();
-                        }
-                    }else {
-                        Toast.makeText(getApplicationContext(),"check connection", Toast.LENGTH_SHORT ).show();
-                    }
-                }catch (Exception ex){
-                    Toast.makeText(getApplicationContext(), ex.toString(), Toast.LENGTH_SHORT).show();
-                }*/
-
                 Intent intent = new Intent(getApplicationContext(), LogsPage.class);
                 startActivity(intent);
             }
         });
 
-        toRegister = findViewById(R.id.toRegister);
 
         toRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,13 +53,5 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    public void onLogin(View view){
-        String Email = email.getText().toString();
-        String Password = password.getText().toString();
-        String type = "login";
-
-
     }
 }

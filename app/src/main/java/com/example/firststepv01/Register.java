@@ -3,12 +3,17 @@ package com.example.firststepv01;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,6 +26,7 @@ public class Register extends Activity {
     Button registerButton;
     TextView toLogin;
     EditText name, phone, email, password, reffSub;
+    ProgressBar progressBar;
     Connection connect;
 
     @Override
@@ -28,6 +34,7 @@ public class Register extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        progressBar = findViewById(R.id.progressBar);
         reffSub = findViewById(R.id.reffSub);
         name = findViewById(R.id.name);
         phone = findViewById(R.id.phone);
@@ -38,49 +45,56 @@ public class Register extends Activity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final String inputUsername = name.getText().toString().trim();
+                final String inputEmail = email.getText().toString().trim();
+                final String inputPassword = password.getText().toString().trim();
+                final String inputReffsub = reffSub.getText().toString().trim();
 
-                String inputEmail = email.getText().toString().trim();
-                String inputPassword = password.getText().toString().trim();
-                String inputReffsub = reffSub.getText().toString().trim();
+                progressBar.setVisibility(View.VISIBLE);
 
+                if (inputEmail.equals(null)||inputPassword.equals(null)||inputReffsub.equals(null)||inputUsername.equals(null)){
 
-                if (inputReffsub.equals("")){
-                    Toast.makeText(getApplicationContext(), "Enter your inviter code!", Toast.LENGTH_SHORT).show();
-                    return;
                 }
 
-                if (inputEmail.equals("")) {
-                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        //Starting Write and Read data with URL
+                        // Creating array for parameters
+                        String[] field = new String[4];
+                        field[0] = "reff";
+                        field[1] = "username";
+                        field[2] = "email";
+                        field[3] = "password";
 
-                if (inputPassword.equals("")) {
-                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                        //Creating array for data
 
-                if (inputPassword.length() < 6) {
-                    Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                        String[] data = new String[4];
+                        data[0] = inputReffsub;
+                        data[1] = inputUsername;
+                        data[2] = inputEmail;
+                        data[3] = inputPassword;
 
-
-               /*try {
-                    /*ConnectionHundler connectionHundler = new ConnectionHundler();
-                    connect = connectionHundler.connectionclass();
-                    if (connect!=null){
-                        String query= "INSERT INTO workers (inviter, name, phone, email, password)\n" +
-                                "VALUES ("+reffSub+", "+name+", "+phone+", "+email+", "+password+");";
-                        PreparedStatement preparedStatement =   connect.prepareStatement(query);
-                        preparedStatement.executeUpdate();
-                        Toast.makeText(getApplicationContext(),"passed",Toast.LENGTH_SHORT).show();
-                    }else {
-                        Toast.makeText(getApplicationContext(),"check connection", Toast.LENGTH_SHORT ).show();
+                        PutData putData = new PutData("http://192.168.1.8/LoginAndRegister/signup.php", "POST", field, data);
+                        if (putData.startPut()) {
+                            if (putData.onComplete()) {
+                                progressBar.setVisibility(View.GONE);
+                                String result = putData.getResult();
+                                if (result.equals("Sign Up Success")){
+                                    Intent intent = new Intent(getApplicationContext(),Login.class);
+                                    startActivity(intent);
+                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+                        //End Write and Read data with URL
                     }
-                }catch (Exception ex){
-                    Toast.makeText(getApplicationContext(), ex.toString(), Toast.LENGTH_SHORT).show();
-                };*/
+                });
             }
+
         });
 
         toLogin = findViewById(R.id.toLogin);

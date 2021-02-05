@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:orientation="horizontal"
-    android:gravity="center"
-    android:background="@drawable/header_bg">
+    android:gravity="center">
 
 
 

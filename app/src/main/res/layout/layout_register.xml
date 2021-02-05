@@ -91,12 +91,26 @@
     </com.google.android.material.textfield.TextInputLayout
         >
 
-    <Button
-        android:id="@+id/cirRegisterButton"
-        style="@style/loginButton"
-        android:text="Signup"
-        android:layout_gravity="right"
-        android:layout_marginTop="@dimen/loginViewsMargin"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/cirRegisterButton"
+            style="@style/loginButton"
+            android:text="Sign-Up"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/loginViewsMargin"/>
+    </RelativeLayout>
+
 
     <TextView
         android:id="@+id/toLogin"
