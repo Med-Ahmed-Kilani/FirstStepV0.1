@@ -1,15 +1,16 @@
 package com.example.firststepv01;
 
-public class Ad {
-    int id, image;
-    String title, link, price ;
+import android.widget.ImageView;
 
-    public Ad(int id, String title, String link, int image, String price) {
-        this.id = id;
+public class Ad {
+    int id, price;
+    String title, link, image ;
+
+
+    public Ad(String title, String image, int price) {
         this.price = price;
         this.image = image;
         this.title = title;
-        this.link = link;
     }
 
     public Ad(int id, String title) {
@@ -33,11 +34,11 @@ public class Ad {
         this.title = title;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -49,11 +50,11 @@ public class Ad {
         this.link = link;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 }

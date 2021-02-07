@@ -4,66 +4,72 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdAdapter extends RecyclerView.Adapter<AdAdapter.ViewHolder>  {
+public class AdAdapter extends RecyclerView.Adapter<AdAdapter.MyViewHolder> {
 
-    List<Ad> ads ;
-    Context context;
+    private Context mContext;
+    private List<Ad> ads = new ArrayList<>();
 
-    public AdAdapter(List<Ad> ads, Context context) {
+
+    public AdAdapter (Context context,List<Ad> ads){
+        this.mContext = context;
         this.ads = ads;
-        this.context = context;
     }
 
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView adTitle, adPrice;
+        private ImageView adImageView;
+
+
+        public MyViewHolder (View view){
+            super(view);
+
+            adTitle = view.findViewById(R.id.adTitle);
+            adImageView = view.findViewById(R.id.adImage);
+            adPrice = view.findViewById(R.id.adPrice);
+
+        }
+    }
 
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.ad_model, parent ,false);
-        return new AdAdapter.ViewHolder(view);
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(mContext).inflate(R.layout.ad_model,parent,false);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Ad ad = ads.get(position);
-        holder.adTitle.setText(ad.title);
-        holder.adImage.setImageResource(ad.image);
-        holder.adPrice.setText(ad.price);
-        holder.adLink.setText(ad.link);
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
+        final Ad ad = ads.get(position);
+        holder.adPrice.setText("Points: "+ad.getPrice());
+        holder.adTitle.setText(ad.getTitle());
+        try {
+            Glide.with(mContext).load(ad.getImage()).into(holder.adImageView);
+        } catch (Exception e) {
+            Glide.with(mContext).load("https://images.squarespace-cdn.com/content/537a4829e4b0edb14eb0fd34/1400522942801-FH0H8KL9G9XL7TTLTRLL/Solo+Site+Logo.png?content-type=image%2Fpng").into(holder.adImageView);
+        }
     }
 
     @Override
     public int getItemCount() {
         return ads.size();
     }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
-        TextView adTitle,adLink, adPrice;
-        ImageView adImage;
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            adTitle = itemView.findViewById(R.id.adTitle);
-            adImage = itemView.findViewById(R.id.adImage);
-            adLink = itemView.findViewById(R.id.adLink);
-            adPrice = itemView.findViewById(R.id.adPrice);
-
-
-        }
-    }
-
-
 }

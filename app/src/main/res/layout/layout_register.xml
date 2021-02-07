@@ -19,19 +19,6 @@
         android:text="Register"
         android:layout_marginTop="@dimen/loginViewsMargin"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:id="@+id/textInputReffSub"
-        style="@style/parent"
-        android:layout_marginTop="@dimen/loginViewsMargin">
-
-        <EditText
-            android:id="@+id/reffSub"
-            style="@style/modifiedEditText"
-            android:hint="Inviter Code"
-            android:inputType="textPersonName"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
 
@@ -46,21 +33,14 @@
             android:inputType="textPersonName"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:id="@+id/textInputMobile"
-        style="@style/parent"
-        android:layout_marginTop="@dimen/loginViewsMargin">
-
-        <EditText
-            android:id="@+id/phone"
-            style="@style/modifiedEditText"
-            android:hint="@string/login_mobile_number_hint"
-            android:inputType="phone"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout
-        >
+    <TextView
+        android:id="@+id/usernameError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username must have more than 5 characters!"
+        android:textSize="10sp"
+        android:visibility="gone"
+        android:textColor="#FF0000"/>
 
     <com.google.android.material.textfield.TextInputLayout
 
@@ -75,6 +55,14 @@
             android:inputType="textEmailAddress"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/emailError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email format is wrong!"
+        android:textSize="10sp"
+        android:visibility="gone"
+        android:textColor="#FF0000"/>
 
     <com.google.android.material.textfield.TextInputLayout
 
@@ -90,6 +78,38 @@
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout
         >
+
+    <TextView
+        android:id="@+id/passwordError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password must be more than 7 characters!"
+        android:textSize="10sp"
+        android:visibility="gone"
+        android:textColor="#FF0000"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/textConfirmPassword"
+        style="@style/parent"
+        android:layout_marginTop="@dimen/loginViewsMargin">
+
+        <EditText
+            android:id="@+id/confirmPassword"
+            style="@style/modifiedEditText"
+            android:hint="Confirm your password"
+            android:inputType="textPassword"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout
+        >
+    <TextView
+        android:id="@+id/confirmPasswordError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirmation must be identical to password !"
+        android:textSize="10sp"
+        android:visibility="gone"
+        android:textColor="#FF0000"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

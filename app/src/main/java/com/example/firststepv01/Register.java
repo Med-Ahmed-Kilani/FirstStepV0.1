@@ -24,10 +24,9 @@ import java.sql.Statement;
 public class Register extends Activity {
 
     Button registerButton;
-    TextView toLogin;
-    EditText name, phone, email, password, reffSub;
+    TextView toLogin, usenameError, emailError, passwordError, confirmPassError ;
+    EditText name, email, password, confirmPass;
     ProgressBar progressBar;
-    Connection connect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +34,15 @@ public class Register extends Activity {
         setContentView(R.layout.activity_register);
 
         progressBar = findViewById(R.id.progressBar);
-        reffSub = findViewById(R.id.reffSub);
         name = findViewById(R.id.name);
-        phone = findViewById(R.id.phone);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
+        confirmPass = findViewById(R.id.confirmPassword);
+        usenameError = findViewById(R.id.usernameError);
+        emailError = findViewById(R.id.emailError);
+        passwordError = findViewById(R.id.passwordError);
+        confirmPassError = findViewById(R.id.confirmPasswordError);
+
         registerButton = findViewById(R.id.cirRegisterButton);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -47,52 +50,76 @@ public class Register extends Activity {
             public void onClick(View view) {
                 final String inputUsername = name.getText().toString().trim();
                 final String inputEmail = email.getText().toString().trim();
-                final String inputPassword = password.getText().toString().trim();
-                final String inputReffsub = reffSub.getText().toString().trim();
+                final String inputPassword = password.getText().toString();
+                final String inputConfirmPass = confirmPass.getText().toString();
 
-                progressBar.setVisibility(View.VISIBLE);
+                Boolean pass = true;
 
-                if (inputEmail.equals(null)||inputPassword.equals(null)||inputReffsub.equals(null)||inputUsername.equals(null)){
+                usenameError.setVisibility(View.GONE);
+                emailError.setVisibility(View.GONE);
+                passwordError.setVisibility(View.GONE);
+                confirmPassError.setVisibility(View.GONE);
 
+                if (inputUsername.length()<5){
+                    pass = false;
+                    usenameError.setVisibility(View.VISIBLE);
                 }
 
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        //Starting Write and Read data with URL
-                        // Creating array for parameters
-                        String[] field = new String[4];
-                        field[0] = "reff";
-                        field[1] = "username";
-                        field[2] = "email";
-                        field[3] = "password";
+                if ((inputEmail.length()<10)||!(inputEmail.contains("@"))||(!(inputEmail.contains(".fr"))&&!(inputEmail.contains(".com")))){
+                    pass = false;
+                    emailError.setVisibility(View.VISIBLE);
+                }
 
-                        //Creating array for data
+                if (inputPassword.length()<8){
+                    pass = false;
+                    passwordError.setVisibility(View.VISIBLE);
+                }
 
-                        String[] data = new String[4];
-                        data[0] = inputReffsub;
-                        data[1] = inputUsername;
-                        data[2] = inputEmail;
-                        data[3] = inputPassword;
+                if (!(inputConfirmPass.equals(inputPassword))){
+                    pass = false;
+                    confirmPassError.setVisibility(View.VISIBLE);
+                }
 
-                        PutData putData = new PutData("http://192.168.1.8/LoginAndRegister/signup.php", "POST", field, data);
-                        if (putData.startPut()) {
-                            if (putData.onComplete()) {
-                                progressBar.setVisibility(View.GONE);
-                                String result = putData.getResult();
-                                if (result.equals("Sign Up Success")){
-                                    Intent intent = new Intent(getApplicationContext(),Login.class);
-                                    startActivity(intent);
-                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                if (pass){
+                    progressBar.setVisibility(View.VISIBLE);
+
+                    Handler handler = new Handler(Looper.getMainLooper());
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            //Starting Write and Read data with URL
+                            // Creating array for parameters
+                            String[] field = new String[3];
+                            field[0] = "username";
+                            field[1] = "email";
+                            field[2] = "password";
+
+                            //Creating array for data
+
+                            String[] data = new String[3];
+                            data[0] = inputUsername;
+                            data[1] = inputEmail;
+                            data[2] = inputPassword;
+
+                            PutData putData = new PutData("http://192.168.1.3/LoginAndRegister/signup.php", "POST", field, data);
+                            if (putData.startPut()) {
+                                if (putData.onComplete()) {
+                                    progressBar.setVisibility(View.GONE);
+                                    String result = putData.getResult();
+                                    if (result.equals("Sign Up Success")){
+                                        Intent intent = new Intent(getApplicationContext(),Login.class);
+                                        startActivity(intent);
+                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             }
+                            //End Write and Read data with URL
                         }
-                        //End Write and Read data with URL
-                    }
-                });
+                    });
+                }
+
             }
 
         });
@@ -107,4 +134,6 @@ public class Register extends Activity {
             }
         });
     }
+
+
 }
